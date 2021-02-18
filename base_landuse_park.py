@@ -74,6 +74,11 @@ def setup(app, osm):
         "landuse_other",
         polygon
     )
+    osm.addCondition(
+        lambda tags, e: tags.get("leisure") == "park",
+        "parks",
+        polygon
+    )
     # custom setup ends
     
     if app.buildings:
